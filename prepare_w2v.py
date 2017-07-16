@@ -6,6 +6,14 @@ import re
 
 from pattern.text.es import parsetree
 
+# переводы
+es_words = [word.strip().strip(".") for word in open("words_only.txt", "r")]
+en_words = [word.strip().lower() for word in open("en_gtranslate_words.txt", "r")]
+
+es2en = {es: en for es, en in zip(es_words, en_words)}
+print es2en
+print es2en["trabajas"]
+
 # мусорные слова
 stopwords = set(map(lambda x: x.strip(), open("stopwords_es.txt", "r+").read().split("\n")))
 
@@ -46,6 +54,7 @@ print("WORDS", prepared_words)
 firstline = True
 w2v = {}
 
+
 for line in open("w2v/SBW-vectors-300-min5.txt", "r+"):
     if firstline:
         s = line.split(" ")
@@ -67,4 +76,4 @@ for line in open("w2v/SBW-vectors-300-min5.txt", "r+"):
 
 with open("sbw_vectors_filtered.txt", "w+") as wf:
     for key in w2v:
-        wf.write(key + "\t" + ";".join([str(i) for i in w2v[key].tolist()]) + "\n")
+        wf.write(key + "(" + es2en[key] + ")\t" + ";".join([str(i) for i in w2v[key].tolist()]) + "\n")

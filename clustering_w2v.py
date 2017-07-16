@@ -3,12 +3,15 @@ Python 2.x code for trying out different clustering algorithms for high-dimensio
 """
 
 import random
+
+from sklearn.cluster.hierarchical import AgglomerativeClustering
 from sklearn.cluster.k_means_ import MiniBatchKMeans
 # from sklearn.cluster.birch import Birch
 # from sklearn.cluster.dbscan_ import DBSCAN
 # from sklearn.cluster.mean_shift_ import MeanShift
 # from sklearn.cluster.hierarchical import AgglomerativeClustering
 # from sklearn.externals.joblib.memory import Memory
+from sklearn.externals.joblib.memory import Memory
 
 __author__ = 'aam'
 
@@ -68,8 +71,8 @@ clusterers = [
     #                          affinity='cosine'), "complete_hierarchial15_cosine"),
     # (AgglomerativeClustering(n_clusters=150, memory=Memory(cachedir="cache", verbose=1), linkage='average',
     #                          affinity='cosine'), "avg_hierarchial150_cosine"),
-    # (AgglomerativeClustering(n_clusters=150, memory=Memory(cachedir="cache", verbose=1), linkage='average'),
-    #  "avg_hierarchial150_euclidean"),
+    # (AgglomerativeClustering(n_clusters=10, memory=Memory(cachedir="cache", verbose=1), linkage='average'),
+    #  "avg_hierarchial10_euclidean"),
     # (AgglomerativeClustering(n_clusters=150, memory=Memory(cachedir="cache", verbose=1), linkage='complete'),
     #  "complete_hierarchial150_euclidean"),
     # (AgglomerativeClustering(n_clusters=150, memory=Memory(cachedir="cache", verbose=1), linkage='complete',
@@ -80,7 +83,7 @@ clusterers = [
     # (Birch(n_clusters=15), "birch15"),
     # (Birch(n_clusters=70), "birch70"),
     # (MiniBatchKMeans(n_clusters=1000, verbose=1, init_size=12000), "MiniBatchKMeans1000_init12000"),
-    (MiniBatchKMeans(n_clusters=25, verbose=1, init_size=120), "MiniBatchKMeans25_init120"),
+    (MiniBatchKMeans(n_clusters=50, verbose=1, init_size=500), "MiniBatchKMeans50_init500"),
 ]
 
 
