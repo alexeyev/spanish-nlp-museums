@@ -38,6 +38,8 @@ def lemmatize(txt):
     return [w.lemma for s in parsetree(txt, lemmata=True).sentences for w in s.words if w.tag.startswith("NN")]
 
 
+print "Parsing and filtering..."
+
 prepared_texts = []
 
 for text in segments:
@@ -61,13 +63,15 @@ import gensim
 ldamodel = gensim.models.ldamodel.LdaModel(corpus=corpus,
                                            id2word=dictionary,
                                            num_topics=k,
-                                           # update_every=1,
-                                           # eval_every=1,
-                                           chunksize=100,
-                                           # passes=1,
+                                           update_every=1,
+                                           chunksize=70,
+                                           passes=10,
+                                           # iterations=1000,
+                                           alpha='auto',
+                                           eval_every=2,
+                                           random_state=55
                                            )
 print("LDA trained")
-
 
 for i in range(k):
     print("Topic", i)

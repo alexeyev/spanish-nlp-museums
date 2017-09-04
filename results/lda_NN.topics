@@ -1,0 +1,104 @@
+ldamodel = gensim.models.ldamodel.LdaModel(corpus=corpus,
+                                           id2word=dictionary,
+                                           num_topics=k,
+                                           update_every=1,
+                                           chunksize=70,
+                                           passes=10,
+                                           # iterations=1000,
+                                           alpha='auto',
+                                           eval_every=2,
+                                           random_state=55
+                                           )
+
+LDA trained
+('Topic', 0)
+()
+barcelona	0.0343963294343
+música	0.0181927947367
+santa	0.0162932417185
+arte	0.0161755008748
+palabra	0.0152521087566
+festival	0.0152353183533
+d’art	0.015114909378
+mònica	0.0147651783867
+color	0.014092319806
+internacional	0.013104779704
+()
+('Topic', 1)
+()
+equipo	0.0258988584723
+periódico	0.0166261722704
+número	0.0151151421808
+movimiento	0.0146238867251
+principio	0.00874438809038
+historia	0.0086153016826
+documento	0.00681869991854
+final	0.006700526178
+producto	0.00648239752536
+cargo	0.00645006781884
+()
+('Topic', 2)
+()
+elemento	0.0204872526661
+creación	0.0145966157948
+punto	0.0135782289112
+material	0.0128253828348
+historia	0.0115542769872
+experiencia	0.0112264923306
+secante	0.0109825711447
+realidad	0.0101076990457
+objetivo	0.00980517356375
+concepto	0.0092697587964
+()
+('Topic', 3)
+()
+proyecto	0.0183047559353
+curso	0.0145562413129
+conjunto	0.012791212584
+resultado	0.0120150623513
+disciplina	0.0113448875115
+museo	0.0110609233426
+ficha	0.0105485719732
+material	0.00990164430389
+barcelona	0.00946166065017
+catálogo	0.0091766363847
+()
+('Topic', 4)
+()
+arte	0.0466088314851
+práctica	0.0366704300825
+público	0.028283625607
+dibujo	0.023778905958
+mesa	0.0193660436145
+cosa	0.0189078204151
+educación	0.0187118076713
+tema	0.0179977917118
+investigación	0.0160074006605
+acción	0.0148330885742
+()
+('Topic', 5)
+()
+grupo	0.094146146171
+material	0.0711061608266
+imágén	0.0599429128799
+modo	0.0220005320724
+idea	0.0215356294323
+reflexión	0.0190401368016
+punto	0.0130927619576
+edad	0.0113776090048
+cartapacio	0.0111968500159
+miembro	0.0107156561691
+()
+('Topic', 6)
+()
+artista	0.067489866537
+espacio	0.0485826908469
+trabajo	0.0370679117345
+taller	0.0298963061778
+obra	0.0213473974269
+idea	0.0192104317429
+relación	0.0189027234203
+arte	0.0186847689656
+actividad	0.0174910085827
+proyecto	0.0174574624421
+()
