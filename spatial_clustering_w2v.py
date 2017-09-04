@@ -6,6 +6,7 @@ Python 2.x code for trying out different clustering algorithms for high-dimensio
 
 import random
 
+import math
 from sklearn.cluster.hierarchical import AgglomerativeClustering
 from sklearn.cluster.k_means_ import MiniBatchKMeans
 
@@ -42,6 +43,7 @@ def read_dict(voc=None):
 
             if voc is None or word in voc:
                 rest = map(lambda x: float(x), rest.split(";"))
+                # print sum(rest), math.sqrt(sum([x ** 2 for x in rest]))
                 wv[word] = rest
     return wv
 
