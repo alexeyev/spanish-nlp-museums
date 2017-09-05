@@ -56,7 +56,7 @@ corpus = [dictionary.doc2bow(text) for text in prepared_texts]
 
 print("Corpus built!")
 
-k = 7
+k = 6
 
 import gensim
 
@@ -80,9 +80,10 @@ for i in range(k):
                      ldamodel.get_topic_terms(i, topn=10)]))
     print()
 
-with open("segmented_tm.csv", "w") as wf:
+with open("segmented_tm_topics" + str(k) + ".csv", "w") as wf:
+    wf.write("topic_id,term,prob\n")
     for i in range(k):
         wf.write(
-            "\n".join([dictionary[term].encode("utf-8") + "," + str(prob) for (term, prob) in
-                       ldamodel.get_topic_terms(i, topn=10)]))
+            "\n".join([str(i) + "," + dictionary[term].encode("utf-8") + "," + str(prob) for (term, prob) in
+                       ldamodel.get_topic_terms(i, topn=2000)]))
         wf.write("\n\n")
