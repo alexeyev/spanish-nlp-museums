@@ -14,6 +14,15 @@ es2en = {es: en for es, en in zip(es_words, en_words)}
 print es2en
 print es2en["trabajas"]
 
+print(len(es_words), len(en_words))
+
+with open("i-had-to-code-for-that.csv", "w+") as wf:
+    wf.write("es,en\n")
+    for i in range(len(es_words)):
+        wf.write(es_words[i].replace(",", " ") + "," + en_words[i].replace(",", " ").replace(".", "") + "\n")
+
+quit()
+
 # мусорные слова
 stopwords = set(map(lambda x: x.strip(), open("stopwords_es.txt", "r+").read().split("\n")))
 
@@ -53,7 +62,6 @@ print("WORDS", prepared_words)
 
 firstline = True
 w2v = {}
-
 
 for line in open("w2v/SBW-vectors-300-min5.txt", "r+"):
     if firstline:
